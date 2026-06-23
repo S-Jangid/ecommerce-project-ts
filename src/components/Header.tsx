@@ -6,7 +6,16 @@ import searchIcon from "../assets/images/icons/search-icon.png"
 import cartIcon from "../assets/images/icons/cart-icon.png"
 import { useRef } from "react"
 
-export function Header({ cart }) {
+type HeaderProps = {
+    cart: {
+        productId: string;
+        quantity: number;
+        deliveryOptionId: string;
+
+    }[]
+}
+
+export function Header({ cart } : HeaderProps ) {
     let totalQuantity = 0;
     const navigate = useNavigate();
     const searchInputRef = useRef(null); 
